@@ -5,6 +5,16 @@ import java.sql.*;
 import java.util.Map;
 
 public class PgConnector {
+    public static Connection getConnection(Configuration configuration) {
+        Class.forName();
+        try {
+            Connection connection=DriverManager.getConnection("","","");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return configuration
+    }
+
     public ResultSet execute(String sql) throws Exception {
         InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream("config.yaml");
         Map config=YamlUtil.getConfig(inputStream);

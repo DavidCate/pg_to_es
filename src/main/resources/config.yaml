@@ -1,16 +1,26 @@
-url:
-  "jdbc:postgresql://flow4-wai.pg.rds.aliyuncs.com:3433/call_crm_flow"
-user:
-  "postgres"
-password:
-  "Z8asuidn"
-driverClass:
-  "org.postgresql.Driver"
-
-－－
-es:
+input:
   url:
-    "172.16.1.136:9200"
-  index:
-    "avail"
+    "jdbc:postgresql://flow4-wai.pg.rds.aliyuncs.com:3433/call_crm_flow"
+  user:
+    "postgres"
+  password:
+    "Z8asuidn"
+  driverClass:
+    "org.postgresql.Driver"
+  sql:
+
+filter:
+
+
+output:
+  es:
+    url:
+      "172.16.1.136:9200"
+    index:
+      "avail"
+    documentId:
+      "%{id}"
+
+schedule:
+
 
