@@ -1,0 +1,8 @@
+url:
+  "jdbc:postgresql://flow4-wai.pg.rds.aliyuncs.com:3433/call_crm_flow"
+user:
+  "postgres"
+password:
+  "Z8asuidn"
+driverClass:
+  "org.postgresql.Driver"
