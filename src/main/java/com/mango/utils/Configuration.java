@@ -85,7 +85,8 @@ public class Configuration {
         Map<String,String> inputMap=(Map) config.get("input");
         Map<String,String> outputMap=(Map) config.get("output");
         Map<String,String> filterMap=(Map) config.get("filter");
-        Map<String,String> scheduleMap=(Map) config.get("schedule");
+        String schedule=(String) config.get("schedule");
+        this.setSchedule(schedule);
         this.setDatabaseUrl(inputMap.get("url"));
         this.setDbUser(inputMap.get("user"));
         this.setDbPassword(inputMap.get("password"));

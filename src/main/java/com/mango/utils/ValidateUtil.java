@@ -4,11 +4,11 @@ import java.util.Map;
 
 public class ValidateUtil {
     public static boolean validate(Configuration configuration) {
-        if (configuration.getDatabaseUrl().equals(""))
+        if (configuration.getDatabaseUrl()==null&&"".equals(configuration.getDatabaseUrl()))
             return false;
-        if (configuration.getDbUser().equals(""))
+        if (configuration.getDbUser()==null&&configuration.getDbUser().equals(""))
             return false;
-        if (configuration.getDriverClass().equals(""))
+        if (configuration.getDriverClass()==null&&configuration.getDriverClass().equals(""))
             return false;
         if (configuration.getDbPassword().equals(""))
             return false;
