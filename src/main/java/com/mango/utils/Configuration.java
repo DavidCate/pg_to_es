@@ -10,11 +10,11 @@ public class Configuration {
     }
 
     public Configuration(Map config){
-       setSql(config.get("input").get("sql"));
+
 
     }
 
     public String getSql(){
-
+        return "";
     }
 }

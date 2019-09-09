@@ -5,14 +5,19 @@ import java.sql.*;
 import java.util.Map;
 
 public class PgConnector {
-    public static Connection getConnection(Configuration configuration) {
-        Class.forName();
+    public static Connection getConnection(Configuration configuration) throws Exception {
+        Class.forName("");
+        Connection connection=null;
         try {
-            Connection connection=DriverManager.getConnection("","","");
+             connection=DriverManager.getConnection("","","");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return configuration
+        if(connection!=null){
+            return connection;
+        }else {
+            throw new Exception("获取数据库连接失败");
+        }
     }
 
     public ResultSet execute(String sql) throws Exception {
