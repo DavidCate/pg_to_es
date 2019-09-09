@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class PgConnector {
     public static Connection getConnection(Configuration configuration) throws Exception {
-        Class.forName("");
+        Class.forName(configuration.getDriverClass());
         Connection connection=null;
         try {
-             connection=DriverManager.getConnection("","","");
+             connection=DriverManager.getConnection(configuration.getDatabaseUrl(),configuration.getDbUser(),configuration.getDbPassword());
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -55,8 +55,6 @@ public class Main {
                 }
                 Thread.sleep(schedule.getSleepTime());
                 pageSQL.update();
-
-
             }
         };
     }

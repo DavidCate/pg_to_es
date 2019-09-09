@@ -67,6 +67,15 @@ public class Configuration {
     private String esUrl;
     private String index;
     private String documentId;
+    private String schedule;
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
 
     public void setSql(String sql) {
         this.sql = sql;
