@@ -1,8 +1,11 @@
 package com.mango;
 
 import com.mango.utils.PgConnector;
+import com.mango.utils.YamlUtil;
 
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Map;
 
 public class Test {
     public void test(){
@@ -45,4 +48,17 @@ public class Test {
             System.out.println(xx);
         }
     }
+
+
+//    public Map getConfig(String filepath) throws Exception {
+//        InputStream inputStream=getClass().getClassLoader().getResourceAsStream(filepath);
+//        Map config= YamlUtil.getConfig(inputStream);
+//        return config;
+//    }
+//
+//    public static void main(String[] args) throws Exception {
+//        Main main=new Main();
+//        Map config=main.getConfig("config.yaml");
+//        System.out.println(config.get("xxx"));
+//    }
 }

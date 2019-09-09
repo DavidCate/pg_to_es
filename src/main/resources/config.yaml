@@ -6,3 +6,11 @@ password:
   "Z8asuidn"
 driverClass:
   "org.postgresql.Driver"
+
+－－
+es:
+  url:
+    "172.16.1.136:9200"
+  index:
+    "avail"
+
