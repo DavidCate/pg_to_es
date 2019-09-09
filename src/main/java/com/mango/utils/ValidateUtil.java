@@ -10,9 +10,9 @@ public class ValidateUtil {
             return false;
         if (configuration.getDriverClass()==null&&configuration.getDriverClass().equals(""))
             return false;
-        if (configuration.getDbPassword().equals(""))
+        if (configuration.getDbPassword()==null&&configuration.getDbPassword().equals(""))
             return false;
-        if (configuration.getEsUrl().equals(""))
+        if (configuration.getEsUrl()==null&&configuration.getEsUrl().equals(""))
             return false;
         return true;
     }
