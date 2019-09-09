@@ -11,7 +11,7 @@ public class Schedule {
         this.millions = millions;
     }
 
-    private long millions=0l;
+    private long millions=1l;
 
     public String getSchedule() {
         return schedule;
@@ -23,10 +23,11 @@ public class Schedule {
 
     public Schedule(Configuration configuration) {
         this.setSchedule(configuration.getSchedule());
-        String[] strings=schedule.split("/*");
+        String[] strings=schedule.split("\\*");
 
         for (String string:strings){
-            millions+=Long.getLong(string);
+
+            millions*=Long.parseLong(string);
         }
     }
 
