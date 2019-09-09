@@ -26,7 +26,6 @@ public class Main {
         InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream(filePath);
         Map config=YamlUtil.getConfig(inputStream);
         Configuration conf=new Configuration(config);
-        PgConnector pgConnector=null;
         if (ValidateUtil.validate(config)){
             Connection connection=PgConnector.getConnection(conf);
             Schedule schedule=new Schedule(conf);
@@ -38,12 +37,12 @@ public class Main {
                     ResultSet resultSet=preparedStatement.executeQuery();
                     Filter filter=new Filter(resultSet,conf);
                     List<String> values= filter.filter();
-                    DBUtil dbUtil=new DBUtil();
+                    DBUtil dbUtil=new DBUtil(connection);
                     List<String> fields=dbUtil.getFields();
                     Document document=new Document(fields,values);
                     List<String> messages=document.getMessages();
                     ESUtil esUtil=new ESUtil(conf);
-                    if(esUtil.dumps()){
+                    if(esUtil.dumps(messages)){
 
                     }else {
                         throw new Exception("存储失败");
