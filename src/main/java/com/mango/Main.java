@@ -16,7 +16,7 @@ import java.util.Timer;
 
 
 public class Main {
-    Logger logger= LoggerFactory.getLogger(this.getClass());
+    private final static Logger logger= LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         Main main=new Main();
@@ -56,7 +56,9 @@ public class Main {
                 Thread.sleep(schedule.getSleepTime());
                 pageSQL.update();
             }
-        };
+        }else {
+            throw new Exception("配置文件错误");
+        }
     }
     /*
         1.解析配置文件
