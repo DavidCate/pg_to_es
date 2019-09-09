@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class PgConnector {
     public ResultSet execute(String sql) throws Exception {
-        InputStream inputStream=this.getClass().getResourceAsStream("config.yaml");
+        InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream("config.yaml");
         Map config=YamlUtil.getConfig(inputStream);
         Connection connection;
         PreparedStatement statement;
