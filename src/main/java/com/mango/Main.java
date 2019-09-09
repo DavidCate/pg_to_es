@@ -31,7 +31,7 @@ public class Main {
         InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream(filePath);
         Map config=YamlUtil.getConfig(inputStream);
         Configuration conf=new Configuration(config);
-        if (ValidateUtil.validate(config)){
+        if (ValidateUtil.validate(conf)){
             Connection connection=PgConnector.getConnection(conf);
             Schedule schedule=new Schedule(conf);
             PageSQL pageSQL=new PageSQL(conf.getSql());
