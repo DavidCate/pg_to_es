@@ -34,7 +34,7 @@ public class Main {
         if (ValidateUtil.validate(conf)){
             Connection connection=PgConnector.getConnection(conf);
             Schedule schedule=new Schedule(conf);
-            PageSQL pageSQL=new PageSQL(conf.getSql(), conf);
+            PageSQL pageSQL=new PageSQL(conf);
             while (true){
 
                 while (pageSQL.next()){

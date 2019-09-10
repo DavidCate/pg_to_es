@@ -18,8 +18,8 @@ public class PageSQL {
     private String trackingColumn;
     private String recordLastRun;
 
-    public PageSQL(String sql, Configuration configuration) {
-        this.sql = sql;
+    public PageSQL(Configuration configuration) {
+        this.sql = configuration.getSql();
         this.tablename = getDaTable(sql);
         this.page_size = Integer.parseInt(configuration.getPageSize());
         this.trackingColumn = configuration.getTracking_column();
