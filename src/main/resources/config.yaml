@@ -8,6 +8,19 @@ input:
   driverClass:
     "org.postgresql.Driver"
   sql:
+    "select * from fs_call_avail"
+  page_size:
+    "1000"
+  codec:
+    "UTF-8"
+  use_column_value:
+     "true"
+  tracking_column:
+    "id"
+  record_last_run: #用户自定义
+    "id"
+  last_run_metadata_path:
+    "/opt/logstash/id_flag"
 
 filter:
 
