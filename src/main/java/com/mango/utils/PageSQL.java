@@ -30,19 +30,22 @@ public class PageSQL {
 
     private String getDaTable(String sql){
         String tablename=null;
-        String pattern = "(from (\\w*))";
+        String pattern = "(from\\s*\\w*)";
         Pattern pat = Pattern.compile(pattern);
         Matcher matcher = pat.matcher(sql);
         if (matcher.find()) {
             tablename = matcher.group(0).split("\\s")[1];
+            System.out.println(tablename);
         }
         return tablename;
     }
 
     private long getTotal(String tablename, String trackingColumn, String recordLastRun){
-        if (null != tablename || "".equals(tablename)){
-
-            String sql = "select count()";
+        String sql = "select count(%s) from %s";
+        if (recordLastRun != null || !"".equals(recordLastRun)){
+            sql = String.format(sql, recordLastRun, tablename);
+        }else {
+            sql = String.format(sql, trackingColumn, tablename);
         }
 
         return 1l;
