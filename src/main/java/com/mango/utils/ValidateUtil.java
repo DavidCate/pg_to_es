@@ -8,6 +8,7 @@ import java.util.Map;
 public class ValidateUtil {
     private final static Logger logger= LoggerFactory.getLogger(ValidateUtil.class);
     public static boolean validate(Configuration configuration) {
+        logger.info("校验配置...");
         if (configuration.getDatabaseUrl()==null||"".equals(configuration.getDatabaseUrl())){
             logger.error("databaseUrl为空");
             return false;
