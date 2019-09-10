@@ -110,8 +110,9 @@ public class Configuration {
 
     public Configuration(Map config){
         Map<String,String> inputMap=(Map) config.get("input");
-        Map<String,String> outputMap=(Map) config.get("output");
+        Map<String,Map> outputMap=(Map) config.get("output");
         Map<String,String> filterMap=(Map) config.get("filter");
+        Map<String,String> esMap=(Map)outputMap.get("es");
         String schedule=(String) config.get("schedule");
         this.setSchedule(schedule);
         this.setDatabaseUrl(inputMap.get("url"));
@@ -119,6 +120,7 @@ public class Configuration {
         this.setDbPassword(inputMap.get("password"));
         this.setDriverClass(inputMap.get("driverClass"));
         this.setSql(inputMap.get("sql"));
+        this.setEsUrl(esMap.get("url"));
         this.setPageSize(inputMap.get("page_size"));
         this.setTracking_column(inputMap.get("tracking_column"));
         this.setRecord_last_run(inputMap.get("record_last_run"));
