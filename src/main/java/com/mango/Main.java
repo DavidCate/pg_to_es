@@ -53,6 +53,7 @@ public class Main {
                         throw new Exception("存储失败");
                     }
                 }
+                logger.info("sleeping...");
                 Thread.sleep(schedule.getSleepTime());
                 pageSQL.update();
             }
