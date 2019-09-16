@@ -43,7 +43,8 @@ public class Main {
             PageSQL pageSQL=new PageSQL(conf,connection);
             while (true){
                 logger.info("执行计划...");
-                while (pageSQL.next()){
+                while (pageSQL.hasNext()){
+                    pageSQL.next();
                     logger.info(pageSQL.nextSQL());
                     PreparedStatement preparedStatement=connection.prepareStatement(pageSQL.nextSQL());
                     ResultSet resultSet=preparedStatement.executeQuery();

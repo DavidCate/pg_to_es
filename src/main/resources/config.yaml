@@ -16,9 +16,7 @@ input:
   use_column_value:
      "true"
   tracking_column:
-    "id"
-  record_last_run: #用户自定义
-    "id"
+    "id“
   last_run_metadata_path:
     "/opt/logstash/id_flag"
 
