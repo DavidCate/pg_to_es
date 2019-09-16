@@ -1,8 +1,40 @@
-url:
-  "jdbc:postgresql://flow4-wai.pg.rds.aliyuncs.com:3433/call_crm_flow"
-user:
-  "postgres"
-password:
-  "Z8asuidn"
-driverClass:
-  "org.postgresql.Driver"
+input:
+  url:
+    "jdbc:postgresql://flow4-wai.pg.rds.aliyuncs.com:3433/call_crm_flow"
+  user:
+    "postgres"
+  password:
+    "Z8asuidn"
+  driverClass:
+    "org.postgresql.Driver"
+  sql:
+    "select * from fs_call_avail"
+  page_size:
+    "1000"
+  codec:
+    "UTF-8"
+  use_column_value:
+     "true"
+  tracking_column:
+    "id"
+  record_last_run: #用户自定义
+    "id"
+  last_run_metadata_path:
+    "/opt/logstash/id_flag"
+
+filter:
+
+
+output:
+  es:
+    url:
+      "172.16.1.136:9200"
+    index:
+      "avail"
+    documentId:
+      "%{id}"
+
+schedule:
+  "1000*60" #单位毫秒
+
+

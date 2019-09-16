@@ -5,8 +5,23 @@ import java.sql.*;
 import java.util.Map;
 
 public class PgConnector {
+    public static Connection getConnection(Configuration configuration) throws Exception {
+        Class.forName(configuration.getDriverClass());
+        Connection connection=null;
+        try {
+             connection=DriverManager.getConnection(configuration.getDatabaseUrl(),configuration.getDbUser(),configuration.getDbPassword());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(connection!=null){
+            return connection;
+        }else {
+            throw new Exception("获取数据库连接失败");
+        }
+    }
+
     public ResultSet execute(String sql) throws Exception {
-        InputStream inputStream=this.getClass().getResourceAsStream("config.yaml");
+        InputStream inputStream=this.getClass().getClassLoader().getResourceAsStream("config.yaml");
         Map config=YamlUtil.getConfig(inputStream);
         Connection connection;
         PreparedStatement statement;
